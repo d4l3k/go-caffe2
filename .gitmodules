@@ -1,0 +1,4 @@
+[submodule "pytorch"]
+	path = pytorch
+	url = git@github.com:pytorch/pytorch.git
+	branch = master
