@@ -1,3 +1,6 @@
+.PHONY: test
+test: caffe2pb
+	go test -v .
 
 caffe2pb: $(wildcard pytorch/caffe2/proto/*.proto)
 	-rm -r caffe2pb
@@ -25,3 +28,6 @@ build: $(wildcard pytorch/*)
         -DOpenCV_DIR:PATH='/usr/share/OpenCV' \
         ../pytorch
 	cd build && make -j16
+
+caffe2.go: caffe2.i
+	swig -cgo -go -c++ -intgosize64 caffe2.i
