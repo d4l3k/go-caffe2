@@ -5,6 +5,7 @@ package caffe2
 // #include "caffe2.h"
 import "C"
 import (
+	"log"
 	"unsafe"
 
 	"github.com/d4l3k/go-caffe2/caffe2pb"
@@ -36,23 +37,27 @@ func (b *Blob) FromProto(p *caffe2pb.BlobProto) error {
 	return nil
 }
 
-func (b *Blob) FromTensorProto(p *caffe2pb.TensorProto) error {
-	buf, err := proto.Marshal(p)
-	if err != nil {
-		return err
+func (b *Blob) Proto() (*caffe2pb.BlobProto, error) {
+	buf := b.Serialize()
+	log.Printf("length: %v, %q", len(buf), buf)
+	var p caffe2pb.BlobProto
+	if err := proto.Unmarshal(buf, &p); err != nil {
+		return nil, err
 	}
-	b.Deserialize(buf)
-	return nil
+	return &p, nil
 }
 
 func (b *Blob) Deserialize(content []byte) {
-	C.C2BlobDeserialize(b.b, (*C.char)(unsafe.Pointer(&content[0])), C.int(len(content)))
+	C.C2BlobDeserialize(
+		b.b, (*C.char)(unsafe.Pointer(&content[0])), C.int(len(content)),
+	)
 }
 
 // TODO: make this not do 4 memory copies to get from C to Go
 func (b *Blob) Serialize() []byte {
-	raw := C.C2BlobSerialize(b.b)
+	var len C.int
+	raw := C.C2BlobSerialize(b.b, &len)
 	defer C.free(unsafe.Pointer(raw))
 
-	return []byte(C.GoString(raw))
+	return []byte(C.GoStringN(raw, len))
 }

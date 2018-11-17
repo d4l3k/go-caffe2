@@ -22,8 +22,8 @@ func TestWorkspaceBlob(t *testing.T) {
 		t.Fatal("unknown blob should be nil")
 	}
 
-	if !w.RemoveBlob("foo") {
-		t.Fatal("failed to remove blob")
+	if err := w.RemoveBlob("foo"); err != nil {
+		t.Fatal("failed to remove blob", err)
 	}
 	if w.HasBlob("foo") {
 		t.Fatal("blob wasn't removed")
