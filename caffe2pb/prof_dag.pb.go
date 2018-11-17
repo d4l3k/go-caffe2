@@ -3,57 +3,27 @@
 
 package caffe2pb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 // A two number summary for a value. It also has count for restoring.
 type TwoNumberStatsProto struct {
-	Mean                 *float32 `protobuf:"fixed32,1,opt,name=mean" json:"mean,omitempty"`
-	Stddev               *float32 `protobuf:"fixed32,2,opt,name=stddev" json:"stddev,omitempty"`
-	Count                *int64   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Mean             *float32 `protobuf:"fixed32,1,opt,name=mean" json:"mean,omitempty"`
+	Stddev           *float32 `protobuf:"fixed32,2,opt,name=stddev" json:"stddev,omitempty"`
+	Count            *int64   `protobuf:"varint,3,opt,name=count" json:"count,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *TwoNumberStatsProto) Reset()         { *m = TwoNumberStatsProto{} }
-func (m *TwoNumberStatsProto) String() string { return proto.CompactTextString(m) }
-func (*TwoNumberStatsProto) ProtoMessage()    {}
-func (*TwoNumberStatsProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_86cd9d7983232635, []int{0}
-}
-
-func (m *TwoNumberStatsProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TwoNumberStatsProto.Unmarshal(m, b)
-}
-func (m *TwoNumberStatsProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TwoNumberStatsProto.Marshal(b, m, deterministic)
-}
-func (m *TwoNumberStatsProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TwoNumberStatsProto.Merge(m, src)
-}
-func (m *TwoNumberStatsProto) XXX_Size() int {
-	return xxx_messageInfo_TwoNumberStatsProto.Size(m)
-}
-func (m *TwoNumberStatsProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_TwoNumberStatsProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TwoNumberStatsProto proto.InternalMessageInfo
+func (m *TwoNumberStatsProto) Reset()                    { *m = TwoNumberStatsProto{} }
+func (m *TwoNumberStatsProto) String() string            { return proto.CompactTextString(m) }
+func (*TwoNumberStatsProto) ProtoMessage()               {}
+func (*TwoNumberStatsProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{0} }
 
 func (m *TwoNumberStatsProto) GetMean() float32 {
 	if m != nil && m.Mean != nil {
@@ -82,36 +52,14 @@ type BlobProfile struct {
 	// Name of the blob (corresponds to OperatorDef.output).
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// Profiling statistics.
-	BytesUsed            *TwoNumberStatsProto `protobuf:"bytes,3,opt,name=bytes_used,json=bytesUsed" json:"bytes_used,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	BytesUsed        *TwoNumberStatsProto `protobuf:"bytes,3,opt,name=bytes_used,json=bytesUsed" json:"bytes_used,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
-func (m *BlobProfile) Reset()         { *m = BlobProfile{} }
-func (m *BlobProfile) String() string { return proto.CompactTextString(m) }
-func (*BlobProfile) ProtoMessage()    {}
-func (*BlobProfile) Descriptor() ([]byte, []int) {
-	return fileDescriptor_86cd9d7983232635, []int{1}
-}
-
-func (m *BlobProfile) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BlobProfile.Unmarshal(m, b)
-}
-func (m *BlobProfile) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BlobProfile.Marshal(b, m, deterministic)
-}
-func (m *BlobProfile) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BlobProfile.Merge(m, src)
-}
-func (m *BlobProfile) XXX_Size() int {
-	return xxx_messageInfo_BlobProfile.Size(m)
-}
-func (m *BlobProfile) XXX_DiscardUnknown() {
-	xxx_messageInfo_BlobProfile.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BlobProfile proto.InternalMessageInfo
+func (m *BlobProfile) Reset()                    { *m = BlobProfile{} }
+func (m *BlobProfile) String() string            { return proto.CompactTextString(m) }
+func (*BlobProfile) ProtoMessage()               {}
+func (*BlobProfile) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{1} }
 
 func (m *BlobProfile) GetName() string {
 	if m != nil && m.Name != nil {
@@ -138,36 +86,14 @@ type ProfDAGProto struct {
 	// New field to represent the numbers above, and with count.
 	ExecutionTime *TwoNumberStatsProto `protobuf:"bytes,4,opt,name=execution_time,json=executionTime" json:"execution_time,omitempty"`
 	// Blob profiles that this node outputs.
-	OutputProfile        []*BlobProfile `protobuf:"bytes,5,rep,name=output_profile,json=outputProfile" json:"output_profile,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	OutputProfile    []*BlobProfile `protobuf:"bytes,5,rep,name=output_profile,json=outputProfile" json:"output_profile,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
-func (m *ProfDAGProto) Reset()         { *m = ProfDAGProto{} }
-func (m *ProfDAGProto) String() string { return proto.CompactTextString(m) }
-func (*ProfDAGProto) ProtoMessage()    {}
-func (*ProfDAGProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_86cd9d7983232635, []int{2}
-}
-
-func (m *ProfDAGProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ProfDAGProto.Unmarshal(m, b)
-}
-func (m *ProfDAGProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ProfDAGProto.Marshal(b, m, deterministic)
-}
-func (m *ProfDAGProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProfDAGProto.Merge(m, src)
-}
-func (m *ProfDAGProto) XXX_Size() int {
-	return xxx_messageInfo_ProfDAGProto.Size(m)
-}
-func (m *ProfDAGProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_ProfDAGProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ProfDAGProto proto.InternalMessageInfo
+func (m *ProfDAGProto) Reset()                    { *m = ProfDAGProto{} }
+func (m *ProfDAGProto) String() string            { return proto.CompactTextString(m) }
+func (*ProfDAGProto) ProtoMessage()               {}
+func (*ProfDAGProto) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{2} }
 
 func (m *ProfDAGProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -211,37 +137,15 @@ func (m *ProfDAGProto) GetOutputProfile() []*BlobProfile {
 // indices of 'op' elements of a corresponding NetDef and the 'output'
 // indices within each 'op'.
 type ProfDAGProtos struct {
-	Stats                []*ProfDAGProto `protobuf:"bytes,1,rep,name=stats" json:"stats,omitempty"`
-	NetName              *string         `protobuf:"bytes,2,opt,name=net_name,json=netName" json:"net_name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}        `json:"-"`
-	XXX_unrecognized     []byte          `json:"-"`
-	XXX_sizecache        int32           `json:"-"`
+	Stats            []*ProfDAGProto `protobuf:"bytes,1,rep,name=stats" json:"stats,omitempty"`
+	NetName          *string         `protobuf:"bytes,2,opt,name=net_name,json=netName" json:"net_name,omitempty"`
+	XXX_unrecognized []byte          `json:"-"`
 }
 
-func (m *ProfDAGProtos) Reset()         { *m = ProfDAGProtos{} }
-func (m *ProfDAGProtos) String() string { return proto.CompactTextString(m) }
-func (*ProfDAGProtos) ProtoMessage()    {}
-func (*ProfDAGProtos) Descriptor() ([]byte, []int) {
-	return fileDescriptor_86cd9d7983232635, []int{3}
-}
-
-func (m *ProfDAGProtos) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ProfDAGProtos.Unmarshal(m, b)
-}
-func (m *ProfDAGProtos) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ProfDAGProtos.Marshal(b, m, deterministic)
-}
-func (m *ProfDAGProtos) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ProfDAGProtos.Merge(m, src)
-}
-func (m *ProfDAGProtos) XXX_Size() int {
-	return xxx_messageInfo_ProfDAGProtos.Size(m)
-}
-func (m *ProfDAGProtos) XXX_DiscardUnknown() {
-	xxx_messageInfo_ProfDAGProtos.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ProfDAGProtos proto.InternalMessageInfo
+func (m *ProfDAGProtos) Reset()                    { *m = ProfDAGProtos{} }
+func (m *ProfDAGProtos) String() string            { return proto.CompactTextString(m) }
+func (*ProfDAGProtos) ProtoMessage()               {}
+func (*ProfDAGProtos) Descriptor() ([]byte, []int) { return fileDescriptor3, []int{3} }
 
 func (m *ProfDAGProtos) GetStats() []*ProfDAGProto {
 	if m != nil {
@@ -264,9 +168,9 @@ func init() {
 	proto.RegisterType((*ProfDAGProtos)(nil), "caffe2.ProfDAGProtos")
 }
 
-func init() { proto.RegisterFile("caffe2/proto/prof_dag.proto", fileDescriptor_86cd9d7983232635) }
+func init() { proto.RegisterFile("caffe2/proto/prof_dag.proto", fileDescriptor3) }
 
-var fileDescriptor_86cd9d7983232635 = []byte{
+var fileDescriptor3 = []byte{
 	// 306 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x50, 0x4d, 0x6b, 0xc2, 0x40,
 	0x10, 0x25, 0x89, 0xda, 0x3a, 0x56, 0x0f, 0xab, 0x94, 0x14, 0x2f, 0x21, 0x27, 0xe9, 0xc1, 0x82,

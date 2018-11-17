@@ -3,22 +3,14 @@
 
 package caffe2pb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 // DeviceType that Caffe2 currently supports.
 // Note: if you add a device type, make sure you add the corresponding device
@@ -52,7 +44,6 @@ var DeviceTypeProto_name = map[int32]string{
 	8:     "PROTO_COMPILE_TIME_MAX_DEVICE_TYPES",
 	20901: "PROTO_ONLY_FOR_TEST",
 }
-
 var DeviceTypeProto_value = map[string]int32{
 	"PROTO_CPU":                           0,
 	"PROTO_CUDA":                          1,
@@ -71,11 +62,9 @@ func (x DeviceTypeProto) Enum() *DeviceTypeProto {
 	*p = x
 	return p
 }
-
 func (x DeviceTypeProto) String() string {
 	return proto.EnumName(DeviceTypeProto_name, int32(x))
 }
-
 func (x *DeviceTypeProto) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(DeviceTypeProto_value, data, "DeviceTypeProto")
 	if err != nil {
@@ -84,10 +73,7 @@ func (x *DeviceTypeProto) UnmarshalJSON(data []byte) error {
 	*x = DeviceTypeProto(value)
 	return nil
 }
-
-func (DeviceTypeProto) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{0}
-}
+func (DeviceTypeProto) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 // type of the external storage type, can be the following:
 type ExternalDataProto_SourceType int32
@@ -108,7 +94,6 @@ var ExternalDataProto_SourceType_name = map[int32]string{
 	0: "INLINE_CONTAINER",
 	1: "SIMPLE_FILE",
 }
-
 var ExternalDataProto_SourceType_value = map[string]int32{
 	"INLINE_CONTAINER": 0,
 	"SIMPLE_FILE":      1,
@@ -119,11 +104,9 @@ func (x ExternalDataProto_SourceType) Enum() *ExternalDataProto_SourceType {
 	*p = x
 	return p
 }
-
 func (x ExternalDataProto_SourceType) String() string {
 	return proto.EnumName(ExternalDataProto_SourceType_name, int32(x))
 }
-
 func (x *ExternalDataProto_SourceType) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(ExternalDataProto_SourceType_value, data, "ExternalDataProto_SourceType")
 	if err != nil {
@@ -132,9 +115,8 @@ func (x *ExternalDataProto_SourceType) UnmarshalJSON(data []byte) error {
 	*x = ExternalDataProto_SourceType(value)
 	return nil
 }
-
 func (ExternalDataProto_SourceType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{0, 0}
+	return fileDescriptor2, []int{0, 0}
 }
 
 // Data type
@@ -173,7 +155,6 @@ var TensorProto_DataType_name = map[int32]string{
 	12: "FLOAT16",
 	13: "DOUBLE",
 }
-
 var TensorProto_DataType_value = map[string]int32{
 	"UNDEFINED": 0,
 	"FLOAT":     1,
@@ -195,11 +176,9 @@ func (x TensorProto_DataType) Enum() *TensorProto_DataType {
 	*p = x
 	return p
 }
-
 func (x TensorProto_DataType) String() string {
 	return proto.EnumName(TensorProto_DataType_name, int32(x))
 }
-
 func (x *TensorProto_DataType) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(TensorProto_DataType_value, data, "TensorProto_DataType")
 	if err != nil {
@@ -208,10 +187,7 @@ func (x *TensorProto_DataType) UnmarshalJSON(data []byte) error {
 	*x = TensorProto_DataType(value)
 	return nil
 }
-
-func (TensorProto_DataType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{1, 0}
-}
+func (TensorProto_DataType) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1, 0} }
 
 // data storage
 type TensorProto_StorageType int32
@@ -237,7 +213,6 @@ var TensorProto_StorageType_name = map[int32]string{
 	3: "EXTERNAL",
 	4: "NO_CONTENT",
 }
-
 var TensorProto_StorageType_value = map[string]int32{
 	"TYPED":      1,
 	"RAW":        2,
@@ -250,11 +225,9 @@ func (x TensorProto_StorageType) Enum() *TensorProto_StorageType {
 	*p = x
 	return p
 }
-
 func (x TensorProto_StorageType) String() string {
 	return proto.EnumName(TensorProto_StorageType_name, int32(x))
 }
-
 func (x *TensorProto_StorageType) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(TensorProto_StorageType_value, data, "TensorProto_StorageType")
 	if err != nil {
@@ -263,10 +236,7 @@ func (x *TensorProto_StorageType) UnmarshalJSON(data []byte) error {
 	*x = TensorProto_StorageType(value)
 	return nil
 }
-
-func (TensorProto_StorageType) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{1, 1}
-}
+func (TensorProto_StorageType) EnumDescriptor() ([]byte, []int) { return fileDescriptor2, []int{1, 1} }
 
 // ExternalDataProto stores the pointer to the content of TensorProto
 // the content are stored in the raw format as little endian
@@ -280,36 +250,14 @@ type ExternalDataProto struct {
 	// multiple tensors
 	Offset *int64 `protobuf:"varint,3,opt,name=offset,def=0" json:"offset,omitempty"`
 	// the strides of the content
-	Strides              []int64  `protobuf:"varint,4,rep,name=strides" json:"strides,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Strides          []int64 `protobuf:"varint,4,rep,name=strides" json:"strides,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *ExternalDataProto) Reset()         { *m = ExternalDataProto{} }
-func (m *ExternalDataProto) String() string { return proto.CompactTextString(m) }
-func (*ExternalDataProto) ProtoMessage()    {}
-func (*ExternalDataProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{0}
-}
-
-func (m *ExternalDataProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExternalDataProto.Unmarshal(m, b)
-}
-func (m *ExternalDataProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExternalDataProto.Marshal(b, m, deterministic)
-}
-func (m *ExternalDataProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExternalDataProto.Merge(m, src)
-}
-func (m *ExternalDataProto) XXX_Size() int {
-	return xxx_messageInfo_ExternalDataProto.Size(m)
-}
-func (m *ExternalDataProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExternalDataProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ExternalDataProto proto.InternalMessageInfo
+func (m *ExternalDataProto) Reset()                    { *m = ExternalDataProto{} }
+func (m *ExternalDataProto) String() string            { return proto.CompactTextString(m) }
+func (*ExternalDataProto) ProtoMessage()               {}
+func (*ExternalDataProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{0} }
 
 const Default_ExternalDataProto_SourceType ExternalDataProto_SourceType = ExternalDataProto_INLINE_CONTAINER
 const Default_ExternalDataProto_Offset int64 = 0
@@ -378,37 +326,15 @@ type TensorProto struct {
 	// Optionally, a TensorProto can contain the details about the device that
 	// it was serialized from. This is useful in cases like snapshotting a whole
 	// workspace in a multi-GPU environment.
-	DeviceDetail         *DeviceOption        `protobuf:"bytes,8,opt,name=device_detail,json=deviceDetail" json:"device_detail,omitempty"`
-	Segment              *TensorProto_Segment `protobuf:"bytes,11,opt,name=segment" json:"segment,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
-	XXX_unrecognized     []byte               `json:"-"`
-	XXX_sizecache        int32                `json:"-"`
+	DeviceDetail     *DeviceOption        `protobuf:"bytes,8,opt,name=device_detail,json=deviceDetail" json:"device_detail,omitempty"`
+	Segment          *TensorProto_Segment `protobuf:"bytes,11,opt,name=segment" json:"segment,omitempty"`
+	XXX_unrecognized []byte               `json:"-"`
 }
 
-func (m *TensorProto) Reset()         { *m = TensorProto{} }
-func (m *TensorProto) String() string { return proto.CompactTextString(m) }
-func (*TensorProto) ProtoMessage()    {}
-func (*TensorProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{1}
-}
-
-func (m *TensorProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TensorProto.Unmarshal(m, b)
-}
-func (m *TensorProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TensorProto.Marshal(b, m, deterministic)
-}
-func (m *TensorProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TensorProto.Merge(m, src)
-}
-func (m *TensorProto) XXX_Size() int {
-	return xxx_messageInfo_TensorProto.Size(m)
-}
-func (m *TensorProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_TensorProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TensorProto proto.InternalMessageInfo
+func (m *TensorProto) Reset()                    { *m = TensorProto{} }
+func (m *TensorProto) String() string            { return proto.CompactTextString(m) }
+func (*TensorProto) ProtoMessage()               {}
+func (*TensorProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1} }
 
 const Default_TensorProto_DataType TensorProto_DataType = TensorProto_FLOAT
 const Default_TensorProto_StorageType TensorProto_StorageType = TensorProto_TYPED
@@ -514,37 +440,15 @@ func (m *TensorProto) GetSegment() *TensorProto_Segment {
 // When loading from chunks this is going to indicate where to put data in the
 // full array. When not used full data have to be present
 type TensorProto_Segment struct {
-	Begin                *int64   `protobuf:"varint,1,req,name=begin" json:"begin,omitempty"`
-	End                  *int64   `protobuf:"varint,2,req,name=end" json:"end,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Begin            *int64 `protobuf:"varint,1,req,name=begin" json:"begin,omitempty"`
+	End              *int64 `protobuf:"varint,2,req,name=end" json:"end,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
-func (m *TensorProto_Segment) Reset()         { *m = TensorProto_Segment{} }
-func (m *TensorProto_Segment) String() string { return proto.CompactTextString(m) }
-func (*TensorProto_Segment) ProtoMessage()    {}
-func (*TensorProto_Segment) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{1, 0}
-}
-
-func (m *TensorProto_Segment) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TensorProto_Segment.Unmarshal(m, b)
-}
-func (m *TensorProto_Segment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TensorProto_Segment.Marshal(b, m, deterministic)
-}
-func (m *TensorProto_Segment) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TensorProto_Segment.Merge(m, src)
-}
-func (m *TensorProto_Segment) XXX_Size() int {
-	return xxx_messageInfo_TensorProto_Segment.Size(m)
-}
-func (m *TensorProto_Segment) XXX_DiscardUnknown() {
-	xxx_messageInfo_TensorProto_Segment.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TensorProto_Segment proto.InternalMessageInfo
+func (m *TensorProto_Segment) Reset()                    { *m = TensorProto_Segment{} }
+func (m *TensorProto_Segment) String() string            { return proto.CompactTextString(m) }
+func (*TensorProto_Segment) ProtoMessage()               {}
+func (*TensorProto_Segment) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{1, 0} }
 
 func (m *TensorProto_Segment) GetBegin() int64 {
 	if m != nil && m.Begin != nil {
@@ -561,43 +465,21 @@ func (m *TensorProto_Segment) GetEnd() int64 {
 }
 
 type QTensorProto struct {
-	Dims                 []int64               `protobuf:"varint,1,rep,name=dims" json:"dims,omitempty"`
-	Precision            *int32                `protobuf:"varint,2,req,name=precision" json:"precision,omitempty"`
-	Scale                *float64              `protobuf:"fixed64,3,req,name=scale" json:"scale,omitempty"`
-	Bias                 *float64              `protobuf:"fixed64,4,req,name=bias" json:"bias,omitempty"`
-	IsSigned             *bool                 `protobuf:"varint,5,req,name=is_signed,json=isSigned" json:"is_signed,omitempty"`
-	Data                 []int32               `protobuf:"varint,6,rep,packed,name=data" json:"data,omitempty"`
-	Name                 *string               `protobuf:"bytes,7,opt,name=name" json:"name,omitempty"`
-	DataType             *TensorProto_DataType `protobuf:"varint,8,opt,name=data_type,json=dataType,enum=caffe2.TensorProto_DataType,def=2" json:"data_type,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Dims             []int64               `protobuf:"varint,1,rep,name=dims" json:"dims,omitempty"`
+	Precision        *int32                `protobuf:"varint,2,req,name=precision" json:"precision,omitempty"`
+	Scale            *float64              `protobuf:"fixed64,3,req,name=scale" json:"scale,omitempty"`
+	Bias             *float64              `protobuf:"fixed64,4,req,name=bias" json:"bias,omitempty"`
+	IsSigned         *bool                 `protobuf:"varint,5,req,name=is_signed,json=isSigned" json:"is_signed,omitempty"`
+	Data             []int32               `protobuf:"varint,6,rep,packed,name=data" json:"data,omitempty"`
+	Name             *string               `protobuf:"bytes,7,opt,name=name" json:"name,omitempty"`
+	DataType         *TensorProto_DataType `protobuf:"varint,8,opt,name=data_type,json=dataType,enum=caffe2.TensorProto_DataType,def=2" json:"data_type,omitempty"`
+	XXX_unrecognized []byte                `json:"-"`
 }
 
-func (m *QTensorProto) Reset()         { *m = QTensorProto{} }
-func (m *QTensorProto) String() string { return proto.CompactTextString(m) }
-func (*QTensorProto) ProtoMessage()    {}
-func (*QTensorProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{2}
-}
-
-func (m *QTensorProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_QTensorProto.Unmarshal(m, b)
-}
-func (m *QTensorProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_QTensorProto.Marshal(b, m, deterministic)
-}
-func (m *QTensorProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_QTensorProto.Merge(m, src)
-}
-func (m *QTensorProto) XXX_Size() int {
-	return xxx_messageInfo_QTensorProto.Size(m)
-}
-func (m *QTensorProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_QTensorProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_QTensorProto proto.InternalMessageInfo
+func (m *QTensorProto) Reset()                    { *m = QTensorProto{} }
+func (m *QTensorProto) String() string            { return proto.CompactTextString(m) }
+func (*QTensorProto) ProtoMessage()               {}
+func (*QTensorProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{2} }
 
 const Default_QTensorProto_DataType TensorProto_DataType = TensorProto_INT32
 
@@ -661,36 +543,14 @@ func (m *QTensorProto) GetDataType() TensorProto_DataType {
 // is useful for small tensors; For anything big, consider using a DB for
 // storage.
 type TensorProtos struct {
-	Protos               []*TensorProto `protobuf:"bytes,1,rep,name=protos" json:"protos,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	Protos           []*TensorProto `protobuf:"bytes,1,rep,name=protos" json:"protos,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
-func (m *TensorProtos) Reset()         { *m = TensorProtos{} }
-func (m *TensorProtos) String() string { return proto.CompactTextString(m) }
-func (*TensorProtos) ProtoMessage()    {}
-func (*TensorProtos) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{3}
-}
-
-func (m *TensorProtos) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TensorProtos.Unmarshal(m, b)
-}
-func (m *TensorProtos) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TensorProtos.Marshal(b, m, deterministic)
-}
-func (m *TensorProtos) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TensorProtos.Merge(m, src)
-}
-func (m *TensorProtos) XXX_Size() int {
-	return xxx_messageInfo_TensorProtos.Size(m)
-}
-func (m *TensorProtos) XXX_DiscardUnknown() {
-	xxx_messageInfo_TensorProtos.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TensorProtos proto.InternalMessageInfo
+func (m *TensorProtos) Reset()                    { *m = TensorProtos{} }
+func (m *TensorProtos) String() string            { return proto.CompactTextString(m) }
+func (*TensorProtos) ProtoMessage()               {}
+func (*TensorProtos) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{3} }
 
 func (m *TensorProtos) GetProtos() []*TensorProto {
 	if m != nil {
@@ -700,40 +560,18 @@ func (m *TensorProtos) GetProtos() []*TensorProto {
 }
 
 type TensorShape struct {
-	Dims                 []int64               `protobuf:"varint,1,rep,name=dims" json:"dims,omitempty"`
-	DataType             *TensorProto_DataType `protobuf:"varint,2,opt,name=data_type,json=dataType,enum=caffe2.TensorProto_DataType,def=1" json:"data_type,omitempty"`
-	UnknownDims          []int32               `protobuf:"varint,3,rep,name=unknown_dims,json=unknownDims" json:"unknown_dims,omitempty"`
-	UnknownShape         *bool                 `protobuf:"varint,4,opt,name=unknown_shape,json=unknownShape,def=0" json:"unknown_shape,omitempty"`
-	Name                 *string               `protobuf:"bytes,5,opt,name=name" json:"name,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}              `json:"-"`
-	XXX_unrecognized     []byte                `json:"-"`
-	XXX_sizecache        int32                 `json:"-"`
+	Dims             []int64               `protobuf:"varint,1,rep,name=dims" json:"dims,omitempty"`
+	DataType         *TensorProto_DataType `protobuf:"varint,2,opt,name=data_type,json=dataType,enum=caffe2.TensorProto_DataType,def=1" json:"data_type,omitempty"`
+	UnknownDims      []int32               `protobuf:"varint,3,rep,name=unknown_dims,json=unknownDims" json:"unknown_dims,omitempty"`
+	UnknownShape     *bool                 `protobuf:"varint,4,opt,name=unknown_shape,json=unknownShape,def=0" json:"unknown_shape,omitempty"`
+	Name             *string               `protobuf:"bytes,5,opt,name=name" json:"name,omitempty"`
+	XXX_unrecognized []byte                `json:"-"`
 }
 
-func (m *TensorShape) Reset()         { *m = TensorShape{} }
-func (m *TensorShape) String() string { return proto.CompactTextString(m) }
-func (*TensorShape) ProtoMessage()    {}
-func (*TensorShape) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{4}
-}
-
-func (m *TensorShape) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TensorShape.Unmarshal(m, b)
-}
-func (m *TensorShape) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TensorShape.Marshal(b, m, deterministic)
-}
-func (m *TensorShape) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TensorShape.Merge(m, src)
-}
-func (m *TensorShape) XXX_Size() int {
-	return xxx_messageInfo_TensorShape.Size(m)
-}
-func (m *TensorShape) XXX_DiscardUnknown() {
-	xxx_messageInfo_TensorShape.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TensorShape proto.InternalMessageInfo
+func (m *TensorShape) Reset()                    { *m = TensorShape{} }
+func (m *TensorShape) String() string            { return proto.CompactTextString(m) }
+func (*TensorShape) ProtoMessage()               {}
+func (*TensorShape) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{4} }
 
 const Default_TensorShape_DataType TensorProto_DataType = TensorProto_FLOAT
 const Default_TensorShape_UnknownShape bool = false
@@ -774,36 +612,14 @@ func (m *TensorShape) GetName() string {
 }
 
 type TensorShapes struct {
-	Shapes               []*TensorShape `protobuf:"bytes,1,rep,name=shapes" json:"shapes,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	Shapes           []*TensorShape `protobuf:"bytes,1,rep,name=shapes" json:"shapes,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
-func (m *TensorShapes) Reset()         { *m = TensorShapes{} }
-func (m *TensorShapes) String() string { return proto.CompactTextString(m) }
-func (*TensorShapes) ProtoMessage()    {}
-func (*TensorShapes) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{5}
-}
-
-func (m *TensorShapes) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_TensorShapes.Unmarshal(m, b)
-}
-func (m *TensorShapes) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_TensorShapes.Marshal(b, m, deterministic)
-}
-func (m *TensorShapes) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_TensorShapes.Merge(m, src)
-}
-func (m *TensorShapes) XXX_Size() int {
-	return xxx_messageInfo_TensorShapes.Size(m)
-}
-func (m *TensorShapes) XXX_DiscardUnknown() {
-	xxx_messageInfo_TensorShapes.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_TensorShapes proto.InternalMessageInfo
+func (m *TensorShapes) Reset()                    { *m = TensorShapes{} }
+func (m *TensorShapes) String() string            { return proto.CompactTextString(m) }
+func (*TensorShapes) ProtoMessage()               {}
+func (*TensorShapes) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{5} }
 
 func (m *TensorShapes) GetShapes() []*TensorShape {
 	if m != nil {
@@ -815,46 +631,24 @@ func (m *TensorShapes) GetShapes() []*TensorShape {
 // A named argument containing either singular float, integer and string
 // values, or repeated float, int and string arrays.
 type Argument struct {
-	Name                 *string        `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
-	F                    *float32       `protobuf:"fixed32,2,opt,name=f" json:"f,omitempty"`
-	I                    *int64         `protobuf:"varint,3,opt,name=i" json:"i,omitempty"`
-	S                    []byte         `protobuf:"bytes,4,opt,name=s" json:"s,omitempty"`
-	T                    *TensorProto   `protobuf:"bytes,10,opt,name=t" json:"t,omitempty"`
-	N                    *NetDef        `protobuf:"bytes,8,opt,name=n" json:"n,omitempty"`
-	Floats               []float32      `protobuf:"fixed32,5,rep,name=floats" json:"floats,omitempty"`
-	Ints                 []int64        `protobuf:"varint,6,rep,name=ints" json:"ints,omitempty"`
-	Strings              [][]byte       `protobuf:"bytes,7,rep,name=strings" json:"strings,omitempty"`
-	Tensors              []*TensorProto `protobuf:"bytes,11,rep,name=tensors" json:"tensors,omitempty"`
-	Nets                 []*NetDef      `protobuf:"bytes,9,rep,name=nets" json:"nets,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}       `json:"-"`
-	XXX_unrecognized     []byte         `json:"-"`
-	XXX_sizecache        int32          `json:"-"`
+	Name             *string        `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
+	F                *float32       `protobuf:"fixed32,2,opt,name=f" json:"f,omitempty"`
+	I                *int64         `protobuf:"varint,3,opt,name=i" json:"i,omitempty"`
+	S                []byte         `protobuf:"bytes,4,opt,name=s" json:"s,omitempty"`
+	T                *TensorProto   `protobuf:"bytes,10,opt,name=t" json:"t,omitempty"`
+	N                *NetDef        `protobuf:"bytes,8,opt,name=n" json:"n,omitempty"`
+	Floats           []float32      `protobuf:"fixed32,5,rep,name=floats" json:"floats,omitempty"`
+	Ints             []int64        `protobuf:"varint,6,rep,name=ints" json:"ints,omitempty"`
+	Strings          [][]byte       `protobuf:"bytes,7,rep,name=strings" json:"strings,omitempty"`
+	Tensors          []*TensorProto `protobuf:"bytes,11,rep,name=tensors" json:"tensors,omitempty"`
+	Nets             []*NetDef      `protobuf:"bytes,9,rep,name=nets" json:"nets,omitempty"`
+	XXX_unrecognized []byte         `json:"-"`
 }
 
-func (m *Argument) Reset()         { *m = Argument{} }
-func (m *Argument) String() string { return proto.CompactTextString(m) }
-func (*Argument) ProtoMessage()    {}
-func (*Argument) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{6}
-}
-
-func (m *Argument) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_Argument.Unmarshal(m, b)
-}
-func (m *Argument) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_Argument.Marshal(b, m, deterministic)
-}
-func (m *Argument) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Argument.Merge(m, src)
-}
-func (m *Argument) XXX_Size() int {
-	return xxx_messageInfo_Argument.Size(m)
-}
-func (m *Argument) XXX_DiscardUnknown() {
-	xxx_messageInfo_Argument.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_Argument proto.InternalMessageInfo
+func (m *Argument) Reset()                    { *m = Argument{} }
+func (m *Argument) String() string            { return proto.CompactTextString(m) }
+func (*Argument) ProtoMessage()               {}
+func (*Argument) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{6} }
 
 func (m *Argument) GetName() string {
 	if m != nil && m.Name != nil {
@@ -953,36 +747,14 @@ type DeviceOption struct {
 	// [CPU and Linux specific] NUMA node id
 	NumaNodeId *int32 `protobuf:"varint,5,opt,name=numa_node_id,json=numaNodeId" json:"numa_node_id,omitempty"`
 	// [general] Extra information passed, not used at execution time currently.
-	ExtraInfo            []string `protobuf:"bytes,6,rep,name=extra_info,json=extraInfo" json:"extra_info,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ExtraInfo        []string `protobuf:"bytes,6,rep,name=extra_info,json=extraInfo" json:"extra_info,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *DeviceOption) Reset()         { *m = DeviceOption{} }
-func (m *DeviceOption) String() string { return proto.CompactTextString(m) }
-func (*DeviceOption) ProtoMessage()    {}
-func (*DeviceOption) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{7}
-}
-
-func (m *DeviceOption) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DeviceOption.Unmarshal(m, b)
-}
-func (m *DeviceOption) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DeviceOption.Marshal(b, m, deterministic)
-}
-func (m *DeviceOption) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeviceOption.Merge(m, src)
-}
-func (m *DeviceOption) XXX_Size() int {
-	return xxx_messageInfo_DeviceOption.Size(m)
-}
-func (m *DeviceOption) XXX_DiscardUnknown() {
-	xxx_messageInfo_DeviceOption.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DeviceOption proto.InternalMessageInfo
+func (m *DeviceOption) Reset()                    { *m = DeviceOption{} }
+func (m *DeviceOption) String() string            { return proto.CompactTextString(m) }
+func (*DeviceOption) ProtoMessage()               {}
+func (*DeviceOption) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{7} }
 
 const Default_DeviceOption_DeviceType int32 = 0
 
@@ -1078,36 +850,14 @@ type OperatorDef struct {
 	// we bump the version for the operator.
 	// the runtime system should check the op_version of each OperatorDef
 	// and decide it should reject or accept the model
-	OpVersion            *int64   `protobuf:"varint,12,opt,name=op_version,json=opVersion" json:"op_version,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	OpVersion        *int64 `protobuf:"varint,12,opt,name=op_version,json=opVersion" json:"op_version,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
-func (m *OperatorDef) Reset()         { *m = OperatorDef{} }
-func (m *OperatorDef) String() string { return proto.CompactTextString(m) }
-func (*OperatorDef) ProtoMessage()    {}
-func (*OperatorDef) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{8}
-}
-
-func (m *OperatorDef) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_OperatorDef.Unmarshal(m, b)
-}
-func (m *OperatorDef) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_OperatorDef.Marshal(b, m, deterministic)
-}
-func (m *OperatorDef) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_OperatorDef.Merge(m, src)
-}
-func (m *OperatorDef) XXX_Size() int {
-	return xxx_messageInfo_OperatorDef.Size(m)
-}
-func (m *OperatorDef) XXX_DiscardUnknown() {
-	xxx_messageInfo_OperatorDef.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_OperatorDef proto.InternalMessageInfo
+func (m *OperatorDef) Reset()                    { *m = OperatorDef{} }
+func (m *OperatorDef) String() string            { return proto.CompactTextString(m) }
+func (*OperatorDef) ProtoMessage()               {}
+func (*OperatorDef) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{8} }
 
 const Default_OperatorDef_IsGradientOp bool = false
 
@@ -1210,7 +960,7 @@ type NetDef struct {
 	// in parallel.
 	// Note: This is to be deprecated. Using the arg field with "num_workers" as
 	// key.
-	NumWorkers *int32 `protobuf:"varint,4,opt,name=num_workers,json=numWorkers" json:"num_workers,omitempty"` // Deprecated: Do not use.
+	NumWorkers *int32 `protobuf:"varint,4,opt,name=num_workers,json=numWorkers" json:"num_workers,omitempty"`
 	// The device option for the network. If a network has a specific device
 	// option and one of its operators does not have it set, we will copy over the
 	// device option to the operator. This allows us to basically avoid putting
@@ -1228,37 +978,15 @@ type NetDef struct {
 	// for any blob in external_input and external_output, after a network run
 	// finishes, their content are actually the right content. Any intermediate
 	// blobs' contents may be overwritten.
-	ExternalInput        []string `protobuf:"bytes,7,rep,name=external_input,json=externalInput" json:"external_input,omitempty"`
-	ExternalOutput       []string `protobuf:"bytes,8,rep,name=external_output,json=externalOutput" json:"external_output,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ExternalInput    []string `protobuf:"bytes,7,rep,name=external_input,json=externalInput" json:"external_input,omitempty"`
+	ExternalOutput   []string `protobuf:"bytes,8,rep,name=external_output,json=externalOutput" json:"external_output,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *NetDef) Reset()         { *m = NetDef{} }
-func (m *NetDef) String() string { return proto.CompactTextString(m) }
-func (*NetDef) ProtoMessage()    {}
-func (*NetDef) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{9}
-}
-
-func (m *NetDef) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_NetDef.Unmarshal(m, b)
-}
-func (m *NetDef) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_NetDef.Marshal(b, m, deterministic)
-}
-func (m *NetDef) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_NetDef.Merge(m, src)
-}
-func (m *NetDef) XXX_Size() int {
-	return xxx_messageInfo_NetDef.Size(m)
-}
-func (m *NetDef) XXX_DiscardUnknown() {
-	xxx_messageInfo_NetDef.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_NetDef proto.InternalMessageInfo
+func (m *NetDef) Reset()                    { *m = NetDef{} }
+func (m *NetDef) String() string            { return proto.CompactTextString(m) }
+func (*NetDef) ProtoMessage()               {}
+func (*NetDef) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{9} }
 
 func (m *NetDef) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1281,7 +1009,6 @@ func (m *NetDef) GetType() string {
 	return ""
 }
 
-// Deprecated: Do not use.
 func (m *NetDef) GetNumWorkers() int32 {
 	if m != nil && m.NumWorkers != nil {
 		return *m.NumWorkers
@@ -1343,7 +1070,7 @@ type ExecutionStep struct {
 	// Criteria network specifies a single output (TensorCPU<bool>) of
 	// size (1), is run on every iteration by the executor, and
 	// execution terminates when the output[0] is `false`.
-	CriteriaNetwork *string `protobuf:"bytes,5,opt,name=criteria_network,json=criteriaNetwork" json:"criteria_network,omitempty"` // Deprecated: Do not use.
+	CriteriaNetwork *string `protobuf:"bytes,5,opt,name=criteria_network,json=criteriaNetwork" json:"criteria_network,omitempty"`
 	// DEPRECATED. Use `run_every_ms`.
 	ReportNet      *string `protobuf:"bytes,7,opt,name=report_net,json=reportNet" json:"report_net,omitempty"`
 	ReportInterval *int32  `protobuf:"varint,8,opt,name=report_interval,json=reportInterval" json:"report_interval,omitempty"`
@@ -1374,36 +1101,14 @@ type ExecutionStep struct {
 	// If yes, the workflow and nets are re-created every time this step is run.
 	CreateWorkspace *bool `protobuf:"varint,12,opt,name=create_workspace,json=createWorkspace" json:"create_workspace,omitempty"`
 	// How many copies of the children execution steps to run concurrently.
-	NumConcurrentInstances *int32   `protobuf:"varint,13,opt,name=num_concurrent_instances,json=numConcurrentInstances" json:"num_concurrent_instances,omitempty"`
-	XXX_NoUnkeyedLiteral   struct{} `json:"-"`
-	XXX_unrecognized       []byte   `json:"-"`
-	XXX_sizecache          int32    `json:"-"`
+	NumConcurrentInstances *int32 `protobuf:"varint,13,opt,name=num_concurrent_instances,json=numConcurrentInstances" json:"num_concurrent_instances,omitempty"`
+	XXX_unrecognized       []byte `json:"-"`
 }
 
-func (m *ExecutionStep) Reset()         { *m = ExecutionStep{} }
-func (m *ExecutionStep) String() string { return proto.CompactTextString(m) }
-func (*ExecutionStep) ProtoMessage()    {}
-func (*ExecutionStep) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{10}
-}
-
-func (m *ExecutionStep) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ExecutionStep.Unmarshal(m, b)
-}
-func (m *ExecutionStep) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ExecutionStep.Marshal(b, m, deterministic)
-}
-func (m *ExecutionStep) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ExecutionStep.Merge(m, src)
-}
-func (m *ExecutionStep) XXX_Size() int {
-	return xxx_messageInfo_ExecutionStep.Size(m)
-}
-func (m *ExecutionStep) XXX_DiscardUnknown() {
-	xxx_messageInfo_ExecutionStep.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ExecutionStep proto.InternalMessageInfo
+func (m *ExecutionStep) Reset()                    { *m = ExecutionStep{} }
+func (m *ExecutionStep) String() string            { return proto.CompactTextString(m) }
+func (*ExecutionStep) ProtoMessage()               {}
+func (*ExecutionStep) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{10} }
 
 func (m *ExecutionStep) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1433,7 +1138,6 @@ func (m *ExecutionStep) GetNumIter() int64 {
 	return 0
 }
 
-// Deprecated: Do not use.
 func (m *ExecutionStep) GetCriteriaNetwork() string {
 	if m != nil && m.CriteriaNetwork != nil {
 		return *m.CriteriaNetwork
@@ -1504,37 +1208,15 @@ type PlanDef struct {
 	// networks defined before it.
 	Name *string `protobuf:"bytes,1,opt,name=name" json:"name,omitempty"`
 	// The networks that are going to be used in this plan.
-	Network              []*NetDef        `protobuf:"bytes,2,rep,name=network" json:"network,omitempty"`
-	ExecutionStep        []*ExecutionStep `protobuf:"bytes,3,rep,name=execution_step,json=executionStep" json:"execution_step,omitempty"`
-	XXX_NoUnkeyedLiteral struct{}         `json:"-"`
-	XXX_unrecognized     []byte           `json:"-"`
-	XXX_sizecache        int32            `json:"-"`
+	Network          []*NetDef        `protobuf:"bytes,2,rep,name=network" json:"network,omitempty"`
+	ExecutionStep    []*ExecutionStep `protobuf:"bytes,3,rep,name=execution_step,json=executionStep" json:"execution_step,omitempty"`
+	XXX_unrecognized []byte           `json:"-"`
 }
 
-func (m *PlanDef) Reset()         { *m = PlanDef{} }
-func (m *PlanDef) String() string { return proto.CompactTextString(m) }
-func (*PlanDef) ProtoMessage()    {}
-func (*PlanDef) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{11}
-}
-
-func (m *PlanDef) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlanDef.Unmarshal(m, b)
-}
-func (m *PlanDef) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlanDef.Marshal(b, m, deterministic)
-}
-func (m *PlanDef) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlanDef.Merge(m, src)
-}
-func (m *PlanDef) XXX_Size() int {
-	return xxx_messageInfo_PlanDef.Size(m)
-}
-func (m *PlanDef) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlanDef.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PlanDef proto.InternalMessageInfo
+func (m *PlanDef) Reset()                    { *m = PlanDef{} }
+func (m *PlanDef) String() string            { return proto.CompactTextString(m) }
+func (*PlanDef) ProtoMessage()               {}
+func (*PlanDef) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{11} }
 
 func (m *PlanDef) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1568,37 +1250,15 @@ type BlobProto struct {
 	Qtensor *QTensorProto `protobuf:"bytes,5,opt,name=qtensor" json:"qtensor,omitempty"`
 	// If blob is not Tensor and is divided into chunks, content_num_chunks
 	// contains number of chunks, into which blob was divided.
-	ContentNumChunks     *int32   `protobuf:"varint,6,opt,name=content_num_chunks,json=contentNumChunks" json:"content_num_chunks,omitempty"`
-	ContentChunkId       *int32   `protobuf:"varint,7,opt,name=content_chunk_id,json=contentChunkId" json:"content_chunk_id,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	ContentNumChunks *int32 `protobuf:"varint,6,opt,name=content_num_chunks,json=contentNumChunks" json:"content_num_chunks,omitempty"`
+	ContentChunkId   *int32 `protobuf:"varint,7,opt,name=content_chunk_id,json=contentChunkId" json:"content_chunk_id,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
-func (m *BlobProto) Reset()         { *m = BlobProto{} }
-func (m *BlobProto) String() string { return proto.CompactTextString(m) }
-func (*BlobProto) ProtoMessage()    {}
-func (*BlobProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{12}
-}
-
-func (m *BlobProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BlobProto.Unmarshal(m, b)
-}
-func (m *BlobProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BlobProto.Marshal(b, m, deterministic)
-}
-func (m *BlobProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BlobProto.Merge(m, src)
-}
-func (m *BlobProto) XXX_Size() int {
-	return xxx_messageInfo_BlobProto.Size(m)
-}
-func (m *BlobProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_BlobProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BlobProto proto.InternalMessageInfo
+func (m *BlobProto) Reset()                    { *m = BlobProto{} }
+func (m *BlobProto) String() string            { return proto.CompactTextString(m) }
+func (*BlobProto) ProtoMessage()               {}
+func (*BlobProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{12} }
 
 func (m *BlobProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1658,36 +1318,14 @@ type DBReaderProto struct {
 	// The type of the DB
 	DbType *string `protobuf:"bytes,3,opt,name=db_type,json=dbType" json:"db_type,omitempty"`
 	// The current key of the DB if the DB supports seeking.
-	Key                  *string  `protobuf:"bytes,4,opt,name=key" json:"key,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Key              *string `protobuf:"bytes,4,opt,name=key" json:"key,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *DBReaderProto) Reset()         { *m = DBReaderProto{} }
-func (m *DBReaderProto) String() string { return proto.CompactTextString(m) }
-func (*DBReaderProto) ProtoMessage()    {}
-func (*DBReaderProto) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4e481c78db447618, []int{13}
-}
-
-func (m *DBReaderProto) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_DBReaderProto.Unmarshal(m, b)
-}
-func (m *DBReaderProto) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_DBReaderProto.Marshal(b, m, deterministic)
-}
-func (m *DBReaderProto) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DBReaderProto.Merge(m, src)
-}
-func (m *DBReaderProto) XXX_Size() int {
-	return xxx_messageInfo_DBReaderProto.Size(m)
-}
-func (m *DBReaderProto) XXX_DiscardUnknown() {
-	xxx_messageInfo_DBReaderProto.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_DBReaderProto proto.InternalMessageInfo
+func (m *DBReaderProto) Reset()                    { *m = DBReaderProto{} }
+func (m *DBReaderProto) String() string            { return proto.CompactTextString(m) }
+func (*DBReaderProto) ProtoMessage()               {}
+func (*DBReaderProto) Descriptor() ([]byte, []int) { return fileDescriptor2, []int{13} }
 
 func (m *DBReaderProto) GetName() string {
 	if m != nil && m.Name != nil {
@@ -1718,10 +1356,6 @@ func (m *DBReaderProto) GetKey() string {
 }
 
 func init() {
-	proto.RegisterEnum("caffe2.DeviceTypeProto", DeviceTypeProto_name, DeviceTypeProto_value)
-	proto.RegisterEnum("caffe2.ExternalDataProto_SourceType", ExternalDataProto_SourceType_name, ExternalDataProto_SourceType_value)
-	proto.RegisterEnum("caffe2.TensorProto_DataType", TensorProto_DataType_name, TensorProto_DataType_value)
-	proto.RegisterEnum("caffe2.TensorProto_StorageType", TensorProto_StorageType_name, TensorProto_StorageType_value)
 	proto.RegisterType((*ExternalDataProto)(nil), "caffe2.ExternalDataProto")
 	proto.RegisterType((*TensorProto)(nil), "caffe2.TensorProto")
 	proto.RegisterType((*TensorProto_Segment)(nil), "caffe2.TensorProto.Segment")
@@ -1737,11 +1371,15 @@ func init() {
 	proto.RegisterType((*PlanDef)(nil), "caffe2.PlanDef")
 	proto.RegisterType((*BlobProto)(nil), "caffe2.BlobProto")
 	proto.RegisterType((*DBReaderProto)(nil), "caffe2.DBReaderProto")
+	proto.RegisterEnum("caffe2.DeviceTypeProto", DeviceTypeProto_name, DeviceTypeProto_value)
+	proto.RegisterEnum("caffe2.ExternalDataProto_SourceType", ExternalDataProto_SourceType_name, ExternalDataProto_SourceType_value)
+	proto.RegisterEnum("caffe2.TensorProto_DataType", TensorProto_DataType_name, TensorProto_DataType_value)
+	proto.RegisterEnum("caffe2.TensorProto_StorageType", TensorProto_StorageType_name, TensorProto_StorageType_value)
 }
 
-func init() { proto.RegisterFile("caffe2/proto/caffe2.proto", fileDescriptor_4e481c78db447618) }
+func init() { proto.RegisterFile("caffe2/proto/caffe2.proto", fileDescriptor2) }
 
-var fileDescriptor_4e481c78db447618 = []byte{
+var fileDescriptor2 = []byte{
 	// 1928 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xb4, 0x57, 0x4f, 0x93, 0xdb, 0x48,
 	0xf9, 0x8e, 0x24, 0xcb, 0x96, 0x5e, 0xdb, 0x13, 0xfd, 0x3a, 0xf9, 0x0d, 0x1a, 0x92, 0xad, 0x38,

@@ -3,22 +3,14 @@
 
 package caffe2pb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type LegacyPadding int32
 
@@ -58,7 +50,6 @@ var LegacyPadding_name = map[int32]string{
 	2: "SAME",
 	3: "CAFFE_LEGACY_POOLING",
 }
-
 var LegacyPadding_value = map[string]int32{
 	"NOTSET":               0,
 	"VALID":                1,
@@ -71,11 +62,9 @@ func (x LegacyPadding) Enum() *LegacyPadding {
 	*p = x
 	return p
 }
-
 func (x LegacyPadding) String() string {
 	return proto.EnumName(LegacyPadding_name, int32(x))
 }
-
 func (x *LegacyPadding) UnmarshalJSON(data []byte) error {
 	value, err := proto.UnmarshalJSONEnum(LegacyPadding_value, data, "LegacyPadding")
 	if err != nil {
@@ -84,10 +73,7 @@ func (x *LegacyPadding) UnmarshalJSON(data []byte) error {
 	*x = LegacyPadding(value)
 	return nil
 }
-
-func (LegacyPadding) EnumDescriptor() ([]byte, []int) {
-	return fileDescriptor_54c0602df4a4ebd7, []int{0}
-}
+func (LegacyPadding) EnumDescriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 // Original Caffe1 Datum copy: this is used in image input op to allow us to
 // load caffe1 serialized datum without having to regenerate the database.
@@ -101,36 +87,14 @@ type CaffeDatum struct {
 	// Optionally, the datum could also hold float data.
 	FloatData []float32 `protobuf:"fixed32,6,rep,name=float_data,json=floatData" json:"float_data,omitempty"`
 	// If true data contains an encoded image that need to be decoded
-	Encoded              *bool    `protobuf:"varint,7,opt,name=encoded,def=0" json:"encoded,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Encoded          *bool  `protobuf:"varint,7,opt,name=encoded,def=0" json:"encoded,omitempty"`
+	XXX_unrecognized []byte `json:"-"`
 }
 
-func (m *CaffeDatum) Reset()         { *m = CaffeDatum{} }
-func (m *CaffeDatum) String() string { return proto.CompactTextString(m) }
-func (*CaffeDatum) ProtoMessage()    {}
-func (*CaffeDatum) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54c0602df4a4ebd7, []int{0}
-}
-
-func (m *CaffeDatum) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_CaffeDatum.Unmarshal(m, b)
-}
-func (m *CaffeDatum) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_CaffeDatum.Marshal(b, m, deterministic)
-}
-func (m *CaffeDatum) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CaffeDatum.Merge(m, src)
-}
-func (m *CaffeDatum) XXX_Size() int {
-	return xxx_messageInfo_CaffeDatum.Size(m)
-}
-func (m *CaffeDatum) XXX_DiscardUnknown() {
-	xxx_messageInfo_CaffeDatum.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_CaffeDatum proto.InternalMessageInfo
+func (m *CaffeDatum) Reset()                    { *m = CaffeDatum{} }
+func (m *CaffeDatum) String() string            { return proto.CompactTextString(m) }
+func (*CaffeDatum) ProtoMessage()               {}
+func (*CaffeDatum) Descriptor() ([]byte, []int) { return fileDescriptor5, []int{0} }
 
 const Default_CaffeDatum_Encoded bool = false
 
@@ -184,13 +148,13 @@ func (m *CaffeDatum) GetEncoded() bool {
 }
 
 func init() {
-	proto.RegisterEnum("caffe2.LegacyPadding", LegacyPadding_name, LegacyPadding_value)
 	proto.RegisterType((*CaffeDatum)(nil), "caffe2.CaffeDatum")
+	proto.RegisterEnum("caffe2.LegacyPadding", LegacyPadding_name, LegacyPadding_value)
 }
 
-func init() { proto.RegisterFile("caffe2/proto/caffe2_legacy.proto", fileDescriptor_54c0602df4a4ebd7) }
+func init() { proto.RegisterFile("caffe2/proto/caffe2_legacy.proto", fileDescriptor5) }
 
-var fileDescriptor_54c0602df4a4ebd7 = []byte{
+var fileDescriptor5 = []byte{
 	// 260 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x3c, 0x8f, 0x4f, 0x4b, 0xc3, 0x30,
 	0x18, 0x87, 0x4d, 0xff, 0xad, 0x7b, 0x51, 0x28, 0x2f, 0x43, 0x82, 0x20, 0x06, 0x4f, 0xc5, 0x83,

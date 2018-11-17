@@ -3,58 +3,28 @@
 
 package caffe2pb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
 
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
-
 type ModelInfo struct {
-	Project              *string  `protobuf:"bytes,1,opt,name=project" json:"project,omitempty"`
-	ModelClass           *string  `protobuf:"bytes,2,opt,name=modelClass" json:"modelClass,omitempty"`
-	Version              *string  `protobuf:"bytes,3,opt,name=version" json:"version,omitempty"`
-	PredictorType        *string  `protobuf:"bytes,4,opt,name=predictorType,def=SINGLE_PREDICTOR" json:"predictorType,omitempty"`
-	ModelId              *string  `protobuf:"bytes,5,opt,name=modelId" json:"modelId,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Project          *string `protobuf:"bytes,1,opt,name=project" json:"project,omitempty"`
+	ModelClass       *string `protobuf:"bytes,2,opt,name=modelClass" json:"modelClass,omitempty"`
+	Version          *string `protobuf:"bytes,3,opt,name=version" json:"version,omitempty"`
+	PredictorType    *string `protobuf:"bytes,4,opt,name=predictorType,def=SINGLE_PREDICTOR" json:"predictorType,omitempty"`
+	ModelId          *string `protobuf:"bytes,5,opt,name=modelId" json:"modelId,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *ModelInfo) Reset()         { *m = ModelInfo{} }
-func (m *ModelInfo) String() string { return proto.CompactTextString(m) }
-func (*ModelInfo) ProtoMessage()    {}
-func (*ModelInfo) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{0}
-}
-
-func (m *ModelInfo) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_ModelInfo.Unmarshal(m, b)
-}
-func (m *ModelInfo) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_ModelInfo.Marshal(b, m, deterministic)
-}
-func (m *ModelInfo) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ModelInfo.Merge(m, src)
-}
-func (m *ModelInfo) XXX_Size() int {
-	return xxx_messageInfo_ModelInfo.Size(m)
-}
-func (m *ModelInfo) XXX_DiscardUnknown() {
-	xxx_messageInfo_ModelInfo.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_ModelInfo proto.InternalMessageInfo
+func (m *ModelInfo) Reset()                    { *m = ModelInfo{} }
+func (m *ModelInfo) String() string            { return proto.CompactTextString(m) }
+func (*ModelInfo) ProtoMessage()               {}
+func (*ModelInfo) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{0} }
 
 const Default_ModelInfo_PredictorType string = "SINGLE_PREDICTOR"
 
@@ -94,37 +64,15 @@ func (m *ModelInfo) GetModelId() string {
 }
 
 type BlobsMap struct {
-	Key                  *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
-	Value                []string `protobuf:"bytes,2,rep,name=value" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Key              *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            []string `protobuf:"bytes,2,rep,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *BlobsMap) Reset()         { *m = BlobsMap{} }
-func (m *BlobsMap) String() string { return proto.CompactTextString(m) }
-func (*BlobsMap) ProtoMessage()    {}
-func (*BlobsMap) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{1}
-}
-
-func (m *BlobsMap) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BlobsMap.Unmarshal(m, b)
-}
-func (m *BlobsMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BlobsMap.Marshal(b, m, deterministic)
-}
-func (m *BlobsMap) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BlobsMap.Merge(m, src)
-}
-func (m *BlobsMap) XXX_Size() int {
-	return xxx_messageInfo_BlobsMap.Size(m)
-}
-func (m *BlobsMap) XXX_DiscardUnknown() {
-	xxx_messageInfo_BlobsMap.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BlobsMap proto.InternalMessageInfo
+func (m *BlobsMap) Reset()                    { *m = BlobsMap{} }
+func (m *BlobsMap) String() string            { return proto.CompactTextString(m) }
+func (*BlobsMap) ProtoMessage()               {}
+func (*BlobsMap) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{1} }
 
 func (m *BlobsMap) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -141,37 +89,15 @@ func (m *BlobsMap) GetValue() []string {
 }
 
 type NetsMap struct {
-	Key                  *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
-	Value                *NetDef  `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Key              *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            *NetDef `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *NetsMap) Reset()         { *m = NetsMap{} }
-func (m *NetsMap) String() string { return proto.CompactTextString(m) }
-func (*NetsMap) ProtoMessage()    {}
-func (*NetsMap) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{2}
-}
-
-func (m *NetsMap) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_NetsMap.Unmarshal(m, b)
-}
-func (m *NetsMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_NetsMap.Marshal(b, m, deterministic)
-}
-func (m *NetsMap) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_NetsMap.Merge(m, src)
-}
-func (m *NetsMap) XXX_Size() int {
-	return xxx_messageInfo_NetsMap.Size(m)
-}
-func (m *NetsMap) XXX_DiscardUnknown() {
-	xxx_messageInfo_NetsMap.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_NetsMap proto.InternalMessageInfo
+func (m *NetsMap) Reset()                    { *m = NetsMap{} }
+func (m *NetsMap) String() string            { return proto.CompactTextString(m) }
+func (*NetsMap) ProtoMessage()               {}
+func (*NetsMap) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{2} }
 
 func (m *NetsMap) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -188,37 +114,15 @@ func (m *NetsMap) GetValue() *NetDef {
 }
 
 type PlansMap struct {
-	Key                  *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
-	Value                *PlanDef `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Key              *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            *PlanDef `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte   `json:"-"`
 }
 
-func (m *PlansMap) Reset()         { *m = PlansMap{} }
-func (m *PlansMap) String() string { return proto.CompactTextString(m) }
-func (*PlansMap) ProtoMessage()    {}
-func (*PlansMap) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{3}
-}
-
-func (m *PlansMap) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PlansMap.Unmarshal(m, b)
-}
-func (m *PlansMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PlansMap.Marshal(b, m, deterministic)
-}
-func (m *PlansMap) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PlansMap.Merge(m, src)
-}
-func (m *PlansMap) XXX_Size() int {
-	return xxx_messageInfo_PlansMap.Size(m)
-}
-func (m *PlansMap) XXX_DiscardUnknown() {
-	xxx_messageInfo_PlansMap.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PlansMap proto.InternalMessageInfo
+func (m *PlansMap) Reset()                    { *m = PlansMap{} }
+func (m *PlansMap) String() string            { return proto.CompactTextString(m) }
+func (*PlansMap) ProtoMessage()               {}
+func (*PlansMap) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{3} }
 
 func (m *PlansMap) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -235,37 +139,15 @@ func (m *PlansMap) GetValue() *PlanDef {
 }
 
 type StringMap struct {
-	Key                  *string  `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
-	Value                *string  `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+	Key              *string `protobuf:"bytes,1,req,name=key" json:"key,omitempty"`
+	Value            *string `protobuf:"bytes,2,req,name=value" json:"value,omitempty"`
+	XXX_unrecognized []byte  `json:"-"`
 }
 
-func (m *StringMap) Reset()         { *m = StringMap{} }
-func (m *StringMap) String() string { return proto.CompactTextString(m) }
-func (*StringMap) ProtoMessage()    {}
-func (*StringMap) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{4}
-}
-
-func (m *StringMap) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_StringMap.Unmarshal(m, b)
-}
-func (m *StringMap) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_StringMap.Marshal(b, m, deterministic)
-}
-func (m *StringMap) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_StringMap.Merge(m, src)
-}
-func (m *StringMap) XXX_Size() int {
-	return xxx_messageInfo_StringMap.Size(m)
-}
-func (m *StringMap) XXX_DiscardUnknown() {
-	xxx_messageInfo_StringMap.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_StringMap proto.InternalMessageInfo
+func (m *StringMap) Reset()                    { *m = StringMap{} }
+func (m *StringMap) String() string            { return proto.CompactTextString(m) }
+func (*StringMap) ProtoMessage()               {}
+func (*StringMap) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{4} }
 
 func (m *StringMap) GetKey() string {
 	if m != nil && m.Key != nil {
@@ -291,35 +173,13 @@ type MetaNetDef struct {
 	ModelInfo               *ModelInfo   `protobuf:"bytes,3,opt,name=modelInfo" json:"modelInfo,omitempty"`
 	Plans                   []*PlansMap  `protobuf:"bytes,4,rep,name=plans" json:"plans,omitempty"`
 	ApplicationSpecificInfo []*StringMap `protobuf:"bytes,5,rep,name=applicationSpecificInfo" json:"applicationSpecificInfo,omitempty"`
-	XXX_NoUnkeyedLiteral    struct{}     `json:"-"`
 	XXX_unrecognized        []byte       `json:"-"`
-	XXX_sizecache           int32        `json:"-"`
 }
 
-func (m *MetaNetDef) Reset()         { *m = MetaNetDef{} }
-func (m *MetaNetDef) String() string { return proto.CompactTextString(m) }
-func (*MetaNetDef) ProtoMessage()    {}
-func (*MetaNetDef) Descriptor() ([]byte, []int) {
-	return fileDescriptor_21345332e51e295d, []int{5}
-}
-
-func (m *MetaNetDef) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_MetaNetDef.Unmarshal(m, b)
-}
-func (m *MetaNetDef) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_MetaNetDef.Marshal(b, m, deterministic)
-}
-func (m *MetaNetDef) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_MetaNetDef.Merge(m, src)
-}
-func (m *MetaNetDef) XXX_Size() int {
-	return xxx_messageInfo_MetaNetDef.Size(m)
-}
-func (m *MetaNetDef) XXX_DiscardUnknown() {
-	xxx_messageInfo_MetaNetDef.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_MetaNetDef proto.InternalMessageInfo
+func (m *MetaNetDef) Reset()                    { *m = MetaNetDef{} }
+func (m *MetaNetDef) String() string            { return proto.CompactTextString(m) }
+func (*MetaNetDef) ProtoMessage()               {}
+func (*MetaNetDef) Descriptor() ([]byte, []int) { return fileDescriptor4, []int{5} }
 
 func (m *MetaNetDef) GetBlobs() []*BlobsMap {
 	if m != nil {
@@ -365,9 +225,9 @@ func init() {
 	proto.RegisterType((*MetaNetDef)(nil), "caffe2.MetaNetDef")
 }
 
-func init() { proto.RegisterFile("caffe2/proto/metanet.proto", fileDescriptor_21345332e51e295d) }
+func init() { proto.RegisterFile("caffe2/proto/metanet.proto", fileDescriptor4) }
 
-var fileDescriptor_21345332e51e295d = []byte{
+var fileDescriptor4 = []byte{
 	// 387 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x52, 0x4d, 0xab, 0xd3, 0x40,
 	0x14, 0x25, 0x49, 0xe3, 0x7b, 0xb9, 0x45, 0xad, 0x83, 0xe0, 0xf8, 0x16, 0x12, 0xea, 0x07, 0x59,

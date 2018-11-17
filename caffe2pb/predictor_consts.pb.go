@@ -3,22 +3,14 @@
 
 package caffe2pb
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
 var _ = math.Inf
-
-// This is a compile-time assertion to ensure that this generated file
-// is compatible with the proto package it is being compiled against.
-// A compilation error at this line likely means your copy of the
-// proto package needs to be updated.
-const _ = proto.ProtoPackageIsVersion2 // please upgrade the proto package
 
 type PredictorConsts struct {
 	// Important - to ensure ordered traversal of the DB, these must be
@@ -30,42 +22,20 @@ type PredictorConsts struct {
 	INPUTS_BLOB_TYPE     *string `protobuf:"bytes,4,opt,name=INPUTS_BLOB_TYPE,json=INPUTSBLOBTYPE,def=INPUTS_BLOB_TYPE" json:"INPUTS_BLOB_TYPE,omitempty"`
 	OUTPUTS_BLOB_TYPE    *string `protobuf:"bytes,5,opt,name=OUTPUTS_BLOB_TYPE,json=OUTPUTSBLOBTYPE,def=OUTPUTS_BLOB_TYPE" json:"OUTPUTS_BLOB_TYPE,omitempty"`
 	// Net types used in MetaNetDef nets
-	GLOBAL_INIT_NET_TYPE  *string  `protobuf:"bytes,6,opt,name=GLOBAL_INIT_NET_TYPE,json=GLOBALINITNETTYPE,def=GLOBAL_INIT_NET_TYPE" json:"GLOBAL_INIT_NET_TYPE,omitempty"`
-	PREDICT_INIT_NET_TYPE *string  `protobuf:"bytes,7,opt,name=PREDICT_INIT_NET_TYPE,json=PREDICTINITNETTYPE,def=PREDICT_INIT_NET_TYPE" json:"PREDICT_INIT_NET_TYPE,omitempty"`
-	PREDICT_NET_TYPE      *string  `protobuf:"bytes,8,opt,name=PREDICT_NET_TYPE,json=PREDICTNETTYPE,def=PREDICT_NET_TYPE" json:"PREDICT_NET_TYPE,omitempty"`
-	SINGLE_PREDICTOR      *string  `protobuf:"bytes,9,opt,name=SINGLE_PREDICTOR,json=SINGLEPREDICTOR,def=SINGLE_PREDICTOR" json:"SINGLE_PREDICTOR,omitempty"`
-	MULTI_PREDICTOR       *string  `protobuf:"bytes,10,opt,name=MULTI_PREDICTOR,json=MULTIPREDICTOR,def=MULTI_PREDICTOR" json:"MULTI_PREDICTOR,omitempty"`
-	TRAIN_INIT_PLAN_TYPE  *string  `protobuf:"bytes,11,opt,name=TRAIN_INIT_PLAN_TYPE,json=TRAININITPLANTYPE,def=TRAIN_INIT_PLAN_TYPE" json:"TRAIN_INIT_PLAN_TYPE,omitempty"`
-	TRAIN_PLAN_TYPE       *string  `protobuf:"bytes,12,opt,name=TRAIN_PLAN_TYPE,json=TRAINPLANTYPE,def=TRAIN_PLAN_TYPE" json:"TRAIN_PLAN_TYPE,omitempty"`
-	XXX_NoUnkeyedLiteral  struct{} `json:"-"`
-	XXX_unrecognized      []byte   `json:"-"`
-	XXX_sizecache         int32    `json:"-"`
+	GLOBAL_INIT_NET_TYPE  *string `protobuf:"bytes,6,opt,name=GLOBAL_INIT_NET_TYPE,json=GLOBALINITNETTYPE,def=GLOBAL_INIT_NET_TYPE" json:"GLOBAL_INIT_NET_TYPE,omitempty"`
+	PREDICT_INIT_NET_TYPE *string `protobuf:"bytes,7,opt,name=PREDICT_INIT_NET_TYPE,json=PREDICTINITNETTYPE,def=PREDICT_INIT_NET_TYPE" json:"PREDICT_INIT_NET_TYPE,omitempty"`
+	PREDICT_NET_TYPE      *string `protobuf:"bytes,8,opt,name=PREDICT_NET_TYPE,json=PREDICTNETTYPE,def=PREDICT_NET_TYPE" json:"PREDICT_NET_TYPE,omitempty"`
+	SINGLE_PREDICTOR      *string `protobuf:"bytes,9,opt,name=SINGLE_PREDICTOR,json=SINGLEPREDICTOR,def=SINGLE_PREDICTOR" json:"SINGLE_PREDICTOR,omitempty"`
+	MULTI_PREDICTOR       *string `protobuf:"bytes,10,opt,name=MULTI_PREDICTOR,json=MULTIPREDICTOR,def=MULTI_PREDICTOR" json:"MULTI_PREDICTOR,omitempty"`
+	TRAIN_INIT_PLAN_TYPE  *string `protobuf:"bytes,11,opt,name=TRAIN_INIT_PLAN_TYPE,json=TRAININITPLANTYPE,def=TRAIN_INIT_PLAN_TYPE" json:"TRAIN_INIT_PLAN_TYPE,omitempty"`
+	TRAIN_PLAN_TYPE       *string `protobuf:"bytes,12,opt,name=TRAIN_PLAN_TYPE,json=TRAINPLANTYPE,def=TRAIN_PLAN_TYPE" json:"TRAIN_PLAN_TYPE,omitempty"`
+	XXX_unrecognized      []byte  `json:"-"`
 }
 
-func (m *PredictorConsts) Reset()         { *m = PredictorConsts{} }
-func (m *PredictorConsts) String() string { return proto.CompactTextString(m) }
-func (*PredictorConsts) ProtoMessage()    {}
-func (*PredictorConsts) Descriptor() ([]byte, []int) {
-	return fileDescriptor_4f1fbbb9b25adaaa, []int{0}
-}
-
-func (m *PredictorConsts) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_PredictorConsts.Unmarshal(m, b)
-}
-func (m *PredictorConsts) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_PredictorConsts.Marshal(b, m, deterministic)
-}
-func (m *PredictorConsts) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_PredictorConsts.Merge(m, src)
-}
-func (m *PredictorConsts) XXX_Size() int {
-	return xxx_messageInfo_PredictorConsts.Size(m)
-}
-func (m *PredictorConsts) XXX_DiscardUnknown() {
-	xxx_messageInfo_PredictorConsts.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_PredictorConsts proto.InternalMessageInfo
+func (m *PredictorConsts) Reset()                    { *m = PredictorConsts{} }
+func (m *PredictorConsts) String() string            { return proto.CompactTextString(m) }
+func (*PredictorConsts) ProtoMessage()               {}
+func (*PredictorConsts) Descriptor() ([]byte, []int) { return fileDescriptor1, []int{0} }
 
 const Default_PredictorConsts_META_NET_DEF string = "!!META_NET_DEF"
 const Default_PredictorConsts_PREDICTOR_DBREADER string = "!!PREDICTOR_DBREADER"
@@ -168,11 +138,9 @@ func init() {
 	proto.RegisterType((*PredictorConsts)(nil), "caffe2.PredictorConsts")
 }
 
-func init() {
-	proto.RegisterFile("caffe2/proto/predictor_consts.proto", fileDescriptor_4f1fbbb9b25adaaa)
-}
+func init() { proto.RegisterFile("caffe2/proto/predictor_consts.proto", fileDescriptor1) }
 
-var fileDescriptor_4f1fbbb9b25adaaa = []byte{
+var fileDescriptor1 = []byte{
 	// 360 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x6c, 0xd1, 0x4d, 0x4f, 0xfa, 0x40,
 	0x10, 0x06, 0xf0, 0xf0, 0x7f, 0x41, 0x19, 0xb1, 0xa5, 0x9b, 0x9a, 0xf4, 0x68, 0xf5, 0xe2, 0x49,
