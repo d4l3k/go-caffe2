@@ -25,6 +25,3 @@ build: $(wildcard pytorch/*)
         -DOpenCV_DIR:PATH='/usr/share/OpenCV' \
         ../pytorch
 	cd build && make -j16
-
-caffe2_c.syso: caffe2.cc caffe2.h build
-	g++ -c -fPIC -O2 -I./build -I./pytorch  -I./pytorch/aten/src/ -I./pytorch/third_party/protobuf/src/ -lcaffe2 -lc10 -o $@ $<
