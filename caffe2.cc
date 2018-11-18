@@ -1,7 +1,7 @@
 #include "caffe2.h"
 #include "caffe2/core/blob_serialization.h"
-#include "caffe2/core/workspace.h"
 #include "caffe2/core/init.h"
+#include "caffe2/core/workspace.h"
 
 void C2Init(void) {
   int argc = 0;
@@ -83,6 +83,8 @@ void C2BlobDeserialize(C2Blob b, char* content, int len) {
 
 char* C2BlobSerialize(C2Blob b, int* len) {
   std::string raw = caffe2::SerializeBlob(*cppB(b), "");
+  char* ret = (char*)malloc(raw.size() + 1);
+  raw.copy(ret, raw.size() + 1);
   *len = raw.length();
-  return strdup(raw.c_str());
+  return ret;
 }
