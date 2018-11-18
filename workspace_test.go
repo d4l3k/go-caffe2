@@ -29,3 +29,20 @@ func TestWorkspaceBlob(t *testing.T) {
 		t.Fatal("blob wasn't removed")
 	}
 }
+
+func TestWorkspaceChild(t *testing.T) {
+	parent := NewWorkspace()
+	parent.CreateBlob("parent")
+
+	child := parent.NewChild()
+	child.CreateBlob("child")
+
+	parent.CreateBlob("parent2")
+	if !child.HasBlob("parent") || !child.HasBlob("parent2") {
+		t.Fatal("missing blobs from parent net")
+	}
+
+	if parent.HasBlob("child") {
+		t.Fatal("child blobs leaking to parent")
+	}
+}

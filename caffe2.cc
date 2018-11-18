@@ -15,6 +15,12 @@ C2Workspace C2WorkspaceInit(void) {
   return (void*)w;
 }
 
+C2Workspace C2WorkspaceChild(C2Workspace p) {
+  caffe2::Workspace* parent = cppW(p);
+  caffe2::Workspace* w = new caffe2::Workspace(parent);
+  return (void*)w;
+}
+
 C2Blob C2WorkspaceCreateBlob(C2Workspace w, char* name) {
   return (void*)cppW(w)->CreateBlob(std::string(name));
 }

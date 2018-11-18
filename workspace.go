@@ -14,6 +14,10 @@ import (
 
 type Workspace struct {
 	w C.C2Workspace
+
+	// we keep hold of parent to make sure that the parent is freed after this
+	// workspace.
+	parent *Workspace
 }
 
 func finalizeWorkspace(w *Workspace) {
@@ -27,6 +31,17 @@ func finalizeWorkspace(w *Workspace) {
 func NewWorkspace() *Workspace {
 	w := &Workspace{
 		w: C.C2WorkspaceInit(),
+	}
+	runtime.SetFinalizer(w, finalizeWorkspace)
+	return w
+}
+
+// NewChild returns a new child workspace that inherits blobs from the parent
+// workspace.
+func (p *Workspace) NewChild() *Workspace {
+	w := &Workspace{
+		w:      C.C2WorkspaceChild(p.w),
+		parent: p,
 	}
 	runtime.SetFinalizer(w, finalizeWorkspace)
 	return w

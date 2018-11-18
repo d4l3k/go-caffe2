@@ -20,6 +20,8 @@ typedef void* C2Net;
 // Result from C2WorkspaceInit must be freed by the caller.
 C2Workspace C2WorkspaceInit(void);
 
+C2Workspace C2WorkspaceChild(C2Workspace w);
+
 C2Blob C2WorkspaceCreateBlob(C2Workspace w, char* name);
 C2Blob C2WorkspaceCreateLocalBlob(C2Workspace w, char* name);
 C2Blob C2WorkspaceGetBlob(C2Workspace w, char* name);
