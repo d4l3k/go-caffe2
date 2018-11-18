@@ -21,7 +21,7 @@ type Workspace struct {
 }
 
 func finalizeWorkspace(w *Workspace) {
-	C.free(unsafe.Pointer(w.w))
+	C.C2WorkspaceDelete(w.w)
 }
 
 // NewWorkspace creates a new workspace.

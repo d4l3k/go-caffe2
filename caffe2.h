@@ -19,8 +19,10 @@ typedef void* C2Net;
 
 // Workspace
 
-// Result from C2WorkspaceInit must be freed by the caller.
+// Result from C2WorkspaceInit must be deleted via C2WorkspaceDelete by the
+// caller.
 C2Workspace C2WorkspaceInit(void);
+void C2WorkspaceDelete(C2Workspace);
 
 C2Workspace C2WorkspaceChild(C2Workspace w);
 

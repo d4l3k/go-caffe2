@@ -23,6 +23,10 @@ C2Workspace C2WorkspaceInit(void) {
   return (void*)w;
 }
 
+void C2WorkspaceDelete(C2Workspace w) {
+  delete cppW(w);
+}
+
 C2Workspace C2WorkspaceChild(C2Workspace p) {
   caffe2::Workspace* parent = cppW(p);
   caffe2::Workspace* w = new caffe2::Workspace(parent);
