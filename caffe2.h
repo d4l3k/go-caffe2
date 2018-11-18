@@ -11,6 +11,8 @@
 extern "C" {
 #endif
 
+void C2Init(void);
+
 typedef void* C2Workspace;
 typedef void* C2Blob;
 typedef void* C2Net;

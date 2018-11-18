@@ -1,6 +1,14 @@
 #include "caffe2.h"
 #include "caffe2/core/blob_serialization.h"
 #include "caffe2/core/workspace.h"
+#include "caffe2/core/init.h"
+
+void C2Init(void) {
+  int argc = 0;
+  char** argv = nullptr;
+  ::google::InitGoogleLogging("");
+  caffe2::GlobalInit(&argc, (char***)&argv);
+}
 
 caffe2::Workspace* cppW(C2Workspace w) {
   return static_cast<caffe2::Workspace*>(w);
