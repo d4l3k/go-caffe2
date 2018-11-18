@@ -1,6 +1,7 @@
 package caffe2
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/d4l3k/go-caffe2/caffe2pb"
@@ -36,5 +37,15 @@ func TestNet(t *testing.T) {
 
 	if err := w.RunNet("test"); err != nil {
 		t.Fatal(err)
+	}
+
+	blob, err := w.GetBlob("b").Proto()
+	if err != nil {
+		t.Fatal(err)
+	}
+	want := []float32{-1, -2, -3}
+	out := blob.Tensor.FloatData
+	if !reflect.DeepEqual(want, out) {
+		t.Fatalf("wrong output: got %+v; wanted %+v", out, want)
 	}
 }

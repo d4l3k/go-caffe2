@@ -5,7 +5,6 @@ package caffe2
 // #include "caffe2.h"
 import "C"
 import (
-	"log"
 	"unsafe"
 
 	"github.com/d4l3k/go-caffe2/caffe2pb"
@@ -39,7 +38,6 @@ func (b *Blob) FromProto(p *caffe2pb.BlobProto) error {
 
 func (b *Blob) Proto() (*caffe2pb.BlobProto, error) {
 	buf := b.Serialize()
-	log.Printf("length: %v, %s", len(buf), buf)
 	var p caffe2pb.BlobProto
 	if err := proto.Unmarshal(buf, &p); err != nil {
 		return nil, err
