@@ -28,6 +28,3 @@ build: $(wildcard pytorch/*)
         -DOpenCV_DIR:PATH='/usr/share/OpenCV' \
         ../pytorch
 	cd build && make -j16
-
-caffe2.go: caffe2.i
-	swig -cgo -go -c++ -intgosize64 caffe2.i
